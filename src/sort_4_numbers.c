@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_4_numbers.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 17:43:34 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/12 19:35:07 by gsoteldo         ###   ########.fr       */
+/*   sort_4_numbers.c                                                         */
+/*                                                                            */
+/*   Esta función ordena una lista de 4 números utilizando el algoritmo        */
+/*   de ordenamiento específico para este caso.                                */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sort_4_numbers(t_stack *stacks)
+/**
+ * @brief Ordena un conjunto de 4 números en una pila utilizando el algoritmo push_swap.
+ *
+ * Esta función toma un puntero a una estructura de tipo t_stack que contiene dos pilas, list_a y list_b.
+ * Se asigna memoria para las estructuras t_moves y t_value en la estructura t_stack.
+ * Luego, se realiza una operación push_b para mover el primer número de la pila list_a a la pila list_b.
+ * A continuación, se llama a la función sort_3_numbers para ordenar los tres números restantes en la pila list_a.
+ * Después, se realizan movimientos en la pila list_a utilizando la función moves_stack_a.
+ * Finalmente, se liberan las estructuras de memoria asignadas y se realiza una limpieza adicional.
+ *
+ * @param stacks Puntero a la estructura t_stack que contiene las pilas list_a y list_b.
+ */
+void sort_4_numbers(t_stack *stacks)
 {
 	stacks->moves = (t_moves *)malloc(sizeof(t_moves));
 	stacks->cheapest = (t_moves *)malloc(sizeof(t_moves));

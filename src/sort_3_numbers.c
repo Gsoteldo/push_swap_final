@@ -3,15 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3_numbers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:51:23 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/13 19:11:02 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/17 14:24:37 by gabo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/**
+ * @brief Realiza la ordenación de una lista de 3 números en orden ascendente.
+ *
+ * Esta función recibe como parámetro un puntero a una lista enlazada que contiene
+ * los números a ordenar. La lista debe tener al menos 3 elementos.
+ * La función utiliza el algoritmo de ordenación para 3 números y realiza las
+ * operaciones necesarias en la lista para obtener los números ordenados en orden
+ * ascendente.
+ *
+ * @param stack_a Puntero al puntero de la lista enlazada que contiene los números.
+ */
 static void	swap_and_rotate(t_linked_list **stack_a)
 {
 	swap_a(stack_a);

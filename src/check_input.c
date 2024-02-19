@@ -3,25 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:54:30 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/13 19:42:53 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/17 15:05:54 by gabo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	is_max_int(char *str)
+/**
+ * Verifica si el número representado por la cadena de caracteres es el valor máximo de un entero.
+ * Si el número es mayor que 2147483647 o menor que -2147483648, se liberan las estructuras de datos y se finaliza el programa.
+ *
+ * @param str La cadena de caracteres que representa el número a verificar.
+ */
+static void is_max_int(char *str)
 {
 	if (ft_atol(str) > 2147483647 || ft_atol(str) < -2147483648)
 		free_stacks(NULL, 0, 1, 1);
 }
 
-int	is_repeated(int argc, char **argv)
+/**
+ * Verifica si hay elementos repetidos en los argumentos de entrada.
+ *
+ * @param argc La cantidad de argumentos de entrada.
+ * @param argv Los argumentos de entrada como un arreglo de cadenas de caracteres.
+ * @return 1 si hay elementos repetidos, 0 en caso contrario.
+ */
+int is_repeated(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 1;
 	if (argc == 2)
@@ -40,6 +53,17 @@ int	is_repeated(int argc, char **argv)
 	return (0);
 }
 
+/**
+ * @brief Realiza la comprobación de los argumentos de entrada.
+ *
+ * Esta función verifica si los argumentos de entrada son válidos.
+ * Comprueba que todos los caracteres sean dígitos y que no haya
+ * caracteres no numéricos en posiciones incorrectas.
+ *
+ * @param argc El número de argumentos de línea de comandos.
+ * @param argv Un array de cadenas que contiene los argumentos de línea de comandos.
+ * @param stacks Un puntero a la estructura de datos t_stack.
+ */
 void	comprobation(int argc, char **argv, t_stack *stacks)
 {
 	int		i;
@@ -68,10 +92,18 @@ void	comprobation(int argc, char **argv, t_stack *stacks)
 	}
 }
 
-int	checker(int argc, char **argv, t_stack *stacks)
+/**
+ * Verifica los argumentos de entrada y realiza diversas comprobaciones.
+ *
+ * @param argc El número de argumentos de la línea de comandos.
+ * @param argv Un array de cadenas que representan los argumentos de la línea de comandos.
+ * @param stacks Un puntero a la estructura t_stack que contiene las pilas.
+ * @return 1 si los argumentos son válidos, 0 si no lo son.
+ */
+int checker(int argc, char **argv, t_stack *stacks)
 {
-	int	i;
-	int	num;
+	int i;
+	int num;
 
 	i = 1;
 	num = 1;
@@ -85,9 +117,9 @@ int	checker(int argc, char **argv, t_stack *stacks)
 		{
 			num = 0;
 			free_stacks(stacks, 0, 1, 1);
-			break ;
+			break;
 		}
 		i++;
 	}
-	return (num);
+	return num;
 }

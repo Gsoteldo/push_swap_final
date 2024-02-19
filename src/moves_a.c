@@ -6,13 +6,19 @@
 /*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 17:02:30 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 00:06:27 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/17 14:50:03 by gabo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	moves(t_stack *stacks, int push_flag)
+/**
+ * Realiza los movimientos necesarios en la pila A.
+ * 
+ * @param stacks Puntero a la estructura que contiene las pilas.
+ * @param push_flag Bandera que indica si se debe realizar un push a la pila A.
+ */
+void moves(t_stack *stacks, int push_flag)
 {
 	while (stacks->moves->ra-- != 0)
 		rotate_a(&stacks->list_a);
@@ -20,9 +26,18 @@ void	moves(t_stack *stacks, int push_flag)
 		r_rotate_a(&stacks->list_a);
 	if (push_flag == 1)
 		push_a(&stacks->list_a, &stacks->list_b);
-	
 }
 
+/**
+ * @brief Reordena la pila A para colocar el elemento mínimo en la parte superior.
+ *
+ * Esta función calcula la cantidad de movimientos necesarios para colocar el elemento mínimo
+ * de la pila A en la parte superior. Luego, actualiza los contadores de movimientos en la estructura
+ * `stacks->moves` y llama a la función `moves` para ejecutar los movimientos.
+ *
+ * @param stacks Puntero a la estructura `t_stack` que contiene las pilas y los contadores de movimientos.
+ * @param flag Carácter que indica el tipo de movimiento a realizar.
+ */
 void	new_order_min_stack(t_stack *stacks, char flag)
 {
 	int	index;
@@ -52,6 +67,16 @@ void	new_order_min_stack(t_stack *stacks, char flag)
 	moves(stacks, flag);
 }
 
+/**
+ * @brief Reordena la pila A para colocar el elemento máximo en la parte superior.
+ * 
+ * Esta función calcula la cantidad de movimientos necesarios para colocar el elemento máximo
+ * de la pila A en la parte superior. Luego, actualiza los contadores de movimientos en la estructura
+ * `stacks->moves` y llama a la función `moves` para ejecutar los movimientos.
+ * 
+ * @param stacks Puntero a la estructura `t_stack` que contiene las pilas y los contadores de movimientos.
+ * @param flag Bandera que indica si se deben imprimir los movimientos realizados.
+ */
 void	new_order_max_stack(t_stack *stacks, int flag)
 {
 	int	index;
@@ -81,6 +106,13 @@ void	new_order_max_stack(t_stack *stacks, int flag)
 	moves(stacks, flag);
 }
 
+/**
+ * Función que realiza los movimientos necesarios en la pila A
+ * para colocar un nuevo elemento en su posición correcta.
+ *
+ * @param stacks Puntero a la estructura que contiene las pilas A y B.
+ * @param stack_b Puntero a la lista enlazada que representa la pila B.
+ */
 void	new_elem_in_a(t_stack *stacks, t_linked_list *stack_b)
 {
 	int	index;
@@ -110,7 +142,17 @@ void	new_elem_in_a(t_stack *stacks, t_linked_list *stack_b)
 	moves(stacks, 1);
 }
 
-void	moves_stack_a(t_stack *stacks)
+/**
+ * Realiza movimientos en la pila A.
+ *
+ * Esta función realiza una serie de movimientos en la pila A
+ * basados en las condiciones establecidas en el código.
+ * Los movimientos incluyen reordenar la pila A, agregar nuevos elementos
+ * y rotar la pila A.
+ *
+ * @param stacks Un puntero a la estructura de datos que contiene las pilas.
+ */
+void moves_stack_a(t_stack *stacks)
 {
 	while (stacks->list_b != 0)
 	{
