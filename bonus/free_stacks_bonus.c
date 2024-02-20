@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stacks.c                                      :+:      :+:    :+:   */
+/*   free_stacks_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 17:08:32 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/20 21:28:07 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:01:52 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/checker_bonus.h"
 
 /**
  * Libera la memoria ocupada por una lista enlazada.
@@ -57,7 +57,6 @@ void	free_stacks(t_stack *stacks, int stackflag, int errorflag, int exitflag)
 		free(stacks->cheapest);
 		free(stacks->value);
 	}
-	system("leaks push_swap");
 	if (errorflag == 1)
 		ft_putstr_fd("Error\n", 2);
 	if (exitflag == 1)

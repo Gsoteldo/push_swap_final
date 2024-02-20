@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:52:08 by gabo              #+#    #+#             */
-/*   Updated: 2024/02/17 18:01:20 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 20:01:42 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "../libft/libft.h"
 
@@ -53,5 +53,34 @@ typedef struct t_moves
 	int	sb;
 	int	ss;
 }	t_moves;
+
+void			free_stacks(t_stack *stacks, int stackflag, \
+				int errorflag, int exitflag);
+
+void			push(t_linked_list **source, t_linked_list **destiny);
+void			push_a(t_linked_list **stack_a, t_linked_list **stack_b);
+void			push_b(t_linked_list **stack_a, t_linked_list **stack_b);
+
+void			r_rotate(t_linked_list **stack);
+void			r_rotate_a(t_linked_list **stack_a);
+void			r_rotate_b(t_linked_list **stack_b);
+void			r_rotate_ab(t_linked_list **stack_a, t_linked_list **stack_b);
+
+void			rotate(t_linked_list **stack);
+void			rotate_a(t_linked_list **stack_a);
+void			rotate_b(t_linked_list **stack_b);
+void			rotate_ab(t_linked_list **stack_a, t_linked_list **stack_b);
+
+void			swap(t_linked_list **stack);
+void			swap_a(t_linked_list **stack_a);
+void			swap_b(t_linked_list **stack_b);
+void			swap_ab(t_linked_list **stack_a, t_linked_list **stack_b);
+
+t_linked_list	*ft_new_a_node(int content);
+t_linked_list	*ft_new_a_list(int argc, char **argv);
+void			show_stack(t_linked_list *stack);
+int				stack_size(t_linked_list *stack);
+
+int				checker(int argc, char **argv, t_stack *stacks);
 
 #endif

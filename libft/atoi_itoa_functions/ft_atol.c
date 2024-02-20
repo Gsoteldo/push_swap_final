@@ -6,14 +6,14 @@
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 20:03:23 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/04 20:04:46 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:09:00 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long	ft_atol(const char *str)
 {
 	long	result;
-	int			sign;
+	int		sign;
 
 	result = 0;
 	sign = 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cheap.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:28:01 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 15:50:38 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 17:20:54 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  *
  * @param stack Puntero a la estructura `t_stack` que contiene las pilas.
  */
-void move_cheapest(t_stack *stack)
+void	move_cheapest(t_stack *stack)
 {
 	while (stack->cheapest->ra-- != 0)
 		rotate_a(&stack->list_a);
@@ -45,9 +45,10 @@ void move_cheapest(t_stack *stack)
  * Esta función actualiza los contadores de movimientos para los movimientos
  * ra, rb, rr, rra y rrb en la estructura de datos stacks.
  *
- * @param stacks Puntero a la estructura de datos que contiene las pilas y los contadores de movimientos.
+ * @param stacks Puntero a la estructura de datos que contiene las pilas y
+ * los contadores de movimientos.
  */
-void double_moves_checker(t_stack *stacks)
+void	double_moves_checker(t_stack *stacks)
 {
 	stacks->moves->rr = 0;
 	stacks->moves->rrr = 0;
@@ -71,7 +72,7 @@ void double_moves_checker(t_stack *stacks)
  * @param stacks Puntero a la estructura de pilas.
  * @param i Indicador de si es el primer movimiento o no.
  */
-void cost(t_stack *stacks, int i)
+void	cost(t_stack *stacks, int i)
 {
 	stacks->moves->moves = stacks->moves->ra + stacks->moves->rb
 		+ stacks->moves->rr + stacks->moves->rra + stacks->moves->rrb
@@ -95,11 +96,11 @@ void cost(t_stack *stacks, int i)
  *
  * @param stacks Puntero a la estructura que contiene los stacks.
  */
-void move_checker(t_stack *stacks)
+void	move_checker(t_stack *stacks)
 {
-	t_linked_list *aux;
-	int i;
-	int size;
+	t_linked_list	*aux;
+	int				i;
+	int				size;
 
 	aux = stacks->list_a;
 	size = stack_size(stacks->list_a);
@@ -119,28 +120,21 @@ void move_checker(t_stack *stacks)
 }
 
 /**
- * @brief Calcula la secuencia de movimientos más económica para ordenar la pila.
+ * @brief Calcula la secuencia de movimientos más económica para 
+ * ordenar la pila.
  * 
- * Esta función asigna memoria para las estructuras de movimientos y valores,
- * y luego realiza una serie de movimientos para encontrar la secuencia más económica
- * para ordenar la pila. La función se detiene cuando el tamaño de la pila es igual a 3.
+ * Esta función asigna memoria para las estructuras de movimientos
+ * y valores, y luego realiza una serie de movimientos para encontrar
+ * la secuencia más económica para ordenar la pila. La función se
+ * detiene cuando el tamaño de la pila es igual a 3.
  * 
  * @param stacks Puntero a la estructura de pilas.
  */
-void cheapest(t_stack *stacks)
+void	cheapest(t_stack *stacks)
 {
-	//int size;
-
-	//size = stack_size(stacks->list_a);
 	stacks->moves = (t_moves *)ft_calloc(1, sizeof(t_moves));
-	if (!stacks->moves)
-		free_stacks(stacks, 1, 0, 1);
 	stacks->cheapest = (t_moves *)ft_calloc(1, sizeof(t_moves));
-	if (!stacks->cheapest)
-		free_stacks(stacks, 1, 0, 1);
 	stacks->value = (t_value *)ft_calloc(1, sizeof(t_value));
-	if (!stacks->value)
-		free_stacks(stacks, 1, 0, 1);
 	while (stack_size(stacks->list_a) != 3)
 	{
 		is_max_min(stacks, 0, 1);

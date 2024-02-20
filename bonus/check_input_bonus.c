@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   check_input_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:54:30 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/20 18:43:33 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:06:34 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	comprobation(int argc, char **argv, t_stack *stacks)
 	j = 0;
 	i = 1;
 	if (argv[i][0] == '\0')
-		free_stacks(stacks, 0, 1, 1);
+		free_stacks(stacks, 1, 0, 1);
 	while (i < argc)
 	{
 		while (j < ft_strlen(argv[i]))
@@ -113,7 +113,7 @@ int	checker(int argc, char **argv, t_stack *stacks)
 	i = 1;
 	num = 1;
 	if (argc < 2)
-		free_stacks(stacks, 0, 0, 1);
+		free_stacks(stacks, 1, 0, 1);
 	while (i < argc)
 	{
 		is_max_int(argv[i]);

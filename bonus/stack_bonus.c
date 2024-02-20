@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:33:08 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/19 18:43:26 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:05:35 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,17 @@ void	show_stack(t_linked_list *stack)
  * @param lst La lista enlazada que representa la pila.
  * @return El tamaño de la pila.
  */
-int	stack_size(t_linked_list *lst)
+int	stack_size(t_linked_list *stack)
 {
 	int	i;
 
 	i = 0;
-	if (lst == 0)
+	if (stack == 0)
 		return (0);
-	while (lst != 0)
+	while (stack != 0)
 	{
 		i++;
-		lst = lst->next;
+		stack = stack->next;
 	}
 	return (i);
 }

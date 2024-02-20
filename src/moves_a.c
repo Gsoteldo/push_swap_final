@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 17:02:30 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 14:50:03 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 20:12:36 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param stacks Puntero a la estructura que contiene las pilas.
  * @param push_flag Bandera que indica si se debe realizar un push a la pila A.
  */
-void moves(t_stack *stacks, int push_flag)
+void	moves(t_stack *stacks, int push_flag)
 {
 	while (stacks->moves->ra-- != 0)
 		rotate_a(&stacks->list_a);
@@ -29,19 +29,22 @@ void moves(t_stack *stacks, int push_flag)
 }
 
 /**
- * @brief Reordena la pila A para colocar el elemento mínimo en la parte superior.
+ * @brief Reordena la pila A para colocar el elemento mínimo en la parte
+ * superior.
  *
- * Esta función calcula la cantidad de movimientos necesarios para colocar el elemento mínimo
- * de la pila A en la parte superior. Luego, actualiza los contadores de movimientos en la estructura
- * `stacks->moves` y llama a la función `moves` para ejecutar los movimientos.
+ * Esta función calcula la cantidad de movimientos necesarios para
+ * colocar el elemento mínimo de la pila A en la parte superior. Luego,
+ * actualiza los contadores de movimientos en la estructura `stacks->moves`
+ * y llama a la función `moves` para ejecutar los movimientos.
  *
- * @param stacks Puntero a la estructura `t_stack` que contiene las pilas y los contadores de movimientos.
+ * @param stacks Puntero a la estructura `t_stack` que contiene las pilas y los
+ * contadores de movimientos.
  * @param flag Carácter que indica el tipo de movimiento a realizar.
  */
 void	new_order_min_stack(t_stack *stacks, char flag)
 {
 	int	index;
-	int size;
+	int	size;
 
 	stacks->moves->ra = 0;
 	stacks->moves->rra = 0;
@@ -68,26 +71,30 @@ void	new_order_min_stack(t_stack *stacks, char flag)
 }
 
 /**
- * @brief Reordena la pila A para colocar el elemento máximo en la parte superior.
+ * @brief Reordena la pila A para colocar el elemento máximo en la
+ * parte superior.
  * 
- * Esta función calcula la cantidad de movimientos necesarios para colocar el elemento máximo
- * de la pila A en la parte superior. Luego, actualiza los contadores de movimientos en la estructura
- * `stacks->moves` y llama a la función `moves` para ejecutar los movimientos.
+ * Esta función calcula la cantidad de movimientos necesarios para colocar el
+ * elemento máximo de la pila A en la parte superior. Luego, actualiza los
+ * contadores de movimientos en la estructura `stacks->moves` y llama a la
+ * función `moves` para ejecutar los movimientos.
  * 
- * @param stacks Puntero a la estructura `t_stack` que contiene las pilas y los contadores de movimientos.
- * @param flag Bandera que indica si se deben imprimir los movimientos realizados.
+ * @param stacks Puntero a la estructura `t_stack` que contiene las pilas y los
+ * contadores de movimientos.
+ * @param flag Bandera que indica si se deben imprimir los movimientos
+ * realizados.
  */
 void	new_order_max_stack(t_stack *stacks, int flag)
 {
 	int	index;
-	int size;
+	int	size;
 
 	stacks->moves->ra = 0;
 	stacks->moves->rra = 0;
+	index = find_index(stacks->list_a, stacks->value->max_a);
+	size = stack_size(stacks->list_a);
 	if (ft_last(stacks->list_a)->content != stacks->value->max_a)
 	{
-		index = find_index(stacks->list_a, stacks->value->max_a);
-		size = stack_size(stacks->list_a);
 		if (size % 2 == 0)
 		{
 			if (index + 1 > size / 2)
@@ -111,30 +118,30 @@ void	new_order_max_stack(t_stack *stacks, int flag)
  * para colocar un nuevo elemento en su posición correcta.
  *
  * @param stacks Puntero a la estructura que contiene las pilas A y B.
- * @param stack_b Puntero a la lista enlazada que representa la pila B.
+ * @param num Puntero a la lista enlazada que representa la pila B.
  */
-void	new_elem_in_a(t_stack *stacks, t_linked_list *stack_b)
+void	new_elem_in_a(t_stack *stacks, int num)
 {
 	int	index;
-	int size;
+	int	search;
 
 	stacks->moves->ra = 0;
 	stacks->moves->rra = 0;
-	if (stacks->list_a->content != search_number_stack_a(stacks->list_a, stack_b->content))
+	search = search_number_in_a(stacks->list_a, num);
+	index = find_index(stacks->list_a, search);
+	if (stacks->list_a->content != search)
 	{
-		size = stack_size(stacks->list_a);
-		index = find_index(stacks->list_a, search_number_stack_a(stacks->list_a, stack_b->content));
-		if (size % 2 == 0)
+		if (stack_size(stacks->list_a) % 2 == 0)
 		{
-			if (index + 1 > size / 2)
-				stacks->moves->rra = (size - index);
+			if (index + 1 > stack_size(stacks->list_a) / 2)
+				stacks->moves->rra = (stack_size(stacks->list_a) - index);
 			else
 				stacks->moves->ra = index;
 		}
 		else
 		{
-			if (index > size / 2)
-				stacks->moves->rra = size - index;
+			if (index > stack_size(stacks->list_a) / 2)
+				stacks->moves->rra = stack_size(stacks->list_a) - index;
 			else
 				stacks->moves->ra = index;
 		}
@@ -152,7 +159,7 @@ void	new_elem_in_a(t_stack *stacks, t_linked_list *stack_b)
  *
  * @param stacks Un puntero a la estructura de datos que contiene las pilas.
  */
-void moves_stack_a(t_stack *stacks)
+void	moves_stack_a(t_stack *stacks)
 {
 	while (stacks->list_b != 0)
 	{
@@ -165,7 +172,7 @@ void moves_stack_a(t_stack *stacks)
 			rotate_a(&stacks->list_a);
 		}
 		else
-			new_elem_in_a(stacks, stacks->list_b);
+			new_elem_in_a(stacks, stacks->list_b->content);
 	}
 	is_max_min(stacks, 1, 0);
 	new_order_min_stack(stacks, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:59:32 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 14:26:45 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/19 18:47:13 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	rotate_b(t_linked_list **stack_b)
 }
 
 /**
- * @brief Realiza una rotación hacia arriba en las pilas A y B y muestra un mensaje.
+ * @brief Realiza una rotación hacia arriba en las pilas A y B y muestra
+ * un mensaje.
  *
  * @param stack_a Puntero al puntero de la pila A.
  * @param stack_b Puntero al puntero de la pila B.

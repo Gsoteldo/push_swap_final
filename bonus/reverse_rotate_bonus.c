@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:59:36 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 18:03:52 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 19:58:57 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,17 @@
  *
  * @param stack Puntero al puntero de la pila enlazada.
  */
-void r_rotate(t_linked_list **stack)
+void	r_rotate(t_linked_list **stack)
 {
-	t_linked_list *temp;
-	t_linked_list *temp2;
+	t_linked_list	*temp;
+	t_linked_list	*temp2;
 
 	if (stack == NULL)
-		return;
-	
+		return ;
 	temp = *stack;
 	temp2 = *stack;
-	
 	while (temp->next->next != NULL)
 		temp = temp->next;
-	
 	temp2 = temp->next;
 	temp->next = NULL;
 	temp2->next = *stack;
@@ -42,10 +39,9 @@ void r_rotate(t_linked_list **stack)
  * 
  * @param stack_a Puntero a la pila A.
  */
-void r_rotate_a(t_linked_list **stack_a)
+void	r_rotate_a(t_linked_list **stack_a)
 {
 	r_rotate(stack_a);
-	ft_printf("rra\n");
 }
 
 /**
@@ -53,10 +49,9 @@ void r_rotate_a(t_linked_list **stack_a)
  * 
  * @param stack_b Puntero a la pila B.
  */
-void r_rotate_b(t_linked_list **stack_b)
+void	r_rotate_b(t_linked_list **stack_b)
 {
 	r_rotate(stack_b);
-	ft_printf("rrb\n");
 }
 
 /**
@@ -65,9 +60,8 @@ void r_rotate_b(t_linked_list **stack_b)
  * @param stack_a Puntero a la pila A.
  * @param stack_b Puntero a la pila B.
  */
-void r_rotate_ab(t_linked_list **stack_a, t_linked_list **stack_b)
+void	r_rotate_ab(t_linked_list **stack_a, t_linked_list **stack_b)
 {
 	r_rotate(stack_a);
 	r_rotate(stack_b);
-	ft_printf("rrr\n");
 }

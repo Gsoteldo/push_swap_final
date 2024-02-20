@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:32:46 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 13:18:52 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 17:34:05 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
  *
  * @param stack_a La lista enlazada a comprobar.
  */
-void is_ordered(t_linked_list *stack_a)
+void	is_ordered(t_linked_list *stack_a)
 {
-	t_linked_list *temp;
+	t_linked_list	*temp;
 
 	temp = stack_a;
 	while (temp->next != NULL)
 	{
 		if (temp->content > temp->next->content)
-			return;
+			return ;
 		temp = temp->next;
 	}
 	exit(0);
@@ -36,12 +36,13 @@ void is_ordered(t_linked_list *stack_a)
  *
  * @param stack La pila enlazada en la que se buscará el valor.
  * @param value El valor que se desea encontrar.
- * @return El índice del valor en la pila, o el tamaño de la pila si no se encuentra.
+ * @return El índice del valor en la pila, o el tamaño de la pila
+ * si no se encuentra.
  */
-int find_index(t_linked_list *stack, int value)
+int	find_index(t_linked_list *stack, int value)
 {
-	t_linked_list *temp;
-	int i;
+	t_linked_list	*temp;
+	int				i;
 
 	i = 0;
 	temp = stack;
@@ -58,14 +59,16 @@ int find_index(t_linked_list *stack, int value)
 /**
  * Busca un número en la pila A.
  *
- * Esta función busca un número específico en la pila A y devuelve el siguiente número
- * más grande si el número buscado no se encuentra en la pila.
+ * Esta función busca un número específico en la pila A y 
+ * devuelve el siguiente número más grande si el número buscado 
+ * no se encuentra en la pila.
  *
  * @param stack La pila A.
  * @param value El número a buscar.
- * @return El siguiente número más grande si el número buscado no se encuentra en la pila.
+ * @return El siguiente número más grande si el número buscado
+ * no se encuentra en la pila.
  */
-int	search_number_stack_a(t_linked_list *stack, int value)
+int	search_number_in_a(t_linked_list *stack, int value)
 {
 	t_linked_list	*temp;
 	int				flag;
@@ -100,7 +103,7 @@ int	search_number_stack_a(t_linked_list *stack, int value)
  * @param value El número que se desea buscar.
  * @return El valor encontrado en la pila B.
  */
-int	search_number_stack_b(t_linked_list *stack, int value)
+int	search_number_in_b(t_linked_list *stack, int value)
 {
 	t_linked_list	*temp;
 	int				flag;
@@ -125,10 +128,10 @@ int	search_number_stack_b(t_linked_list *stack, int value)
 }
 
 /**
- * Returns the last node of the given linked list.
- * 
- * @param stack The linked list.
- * @return The last node of the linked list.
+ * Obtiene el último elemento de una lista enlazada.
+ *
+ * @param stack Puntero al primer elemento de la lista.
+ * @return Puntero al último elemento de la lista, o NULL si la lista está vacía.
  */
 t_linked_list	*ft_last(t_linked_list *stack)
 {

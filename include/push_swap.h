@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:40:43 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 18:01:12 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 19:55:13 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include <stdlib.h>
 
 typedef struct t_linked_list
 {
@@ -65,15 +66,17 @@ int				stack_size(t_linked_list *lst);
 t_linked_list	*ft_last(t_linked_list *stack);
 t_linked_list	*ft_new_a_list(int argc, char **argv);
 t_linked_list	*ft_new_a_node(int content);
-void			free_stacks(t_stack *stacks, int stack_flag, int error_flag, int exit_flag);
+void			free_stacks(t_stack *stacks, int stackflag, \
+					int errorflag, int exitflag);
+
 void			is_max_min(t_stack *stacks, int flag_a, int flag_b);
 void			show_stack(t_linked_list *stack);
 void			moves_stack_a(t_stack *stacks);
 void			to_top_stack_a(t_stack *stacks, t_linked_list *stack_a, int i);
-int				search_number_stack_a(t_linked_list *stack, int value);
+int				search_number_in_a(t_linked_list *stack, int value);
 
 //Stack_b
-int				search_number_stack_b(t_linked_list *stack, int value);
+int				search_number_in_b(t_linked_list *stack, int value);
 void			max_min_in_b(t_stack *stacks);
 void			new_elem_in_b(t_stack *stacks, t_linked_list *stack_a);
 
@@ -104,10 +107,7 @@ void			r_rotate_ab(t_linked_list **stack_a, t_linked_list **stack_b);
 void			sort_3_numbers(t_linked_list **stack_a);
 void			sort_4_numbers(t_stack *stacks);
 
-
 void			cheapest(t_stack *stacks);
 int				find_index(t_linked_list *stack, int value);
-
-
 
 #endif

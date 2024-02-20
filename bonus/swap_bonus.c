@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:59:26 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 18:02:52 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 19:55:33 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	swap(t_linked_list **stack)
 void	swap_a(t_linked_list **stack_a)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
 }
 
 /**
@@ -48,11 +47,11 @@ void	swap_a(t_linked_list **stack_a)
 void	swap_b(t_linked_list **stack_b)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
 }
 
 /**
- * Intercambia los dos primeros elementos de las pilas A y B y muestra un mensaje.
+ * Intercambia los dos primeros elementos de las pilas A y B 
+ * y muestra un mensaje.
  * 
  * @param stack_a Un puntero al puntero de la pila A.
  * @param stack_b Un puntero al puntero de la pila B.
@@ -61,5 +60,4 @@ void	swap_ab(t_linked_list **stack_a, t_linked_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss\n");
 }

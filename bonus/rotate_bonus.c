@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:59:32 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 14:26:45 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/20 19:53:59 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	rotate(t_linked_list **stack)
 void	rotate_a(t_linked_list **stack_a)
 {
 	rotate(stack_a);
-	ft_printf("ra\n");
 }
 
 /**
@@ -52,11 +51,11 @@ void	rotate_a(t_linked_list **stack_a)
 void	rotate_b(t_linked_list **stack_b)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
 }
 
 /**
- * @brief Realiza una rotación hacia arriba en las pilas A y B y muestra un mensaje.
+ * @brief Realiza una rotación hacia arriba en las pilas A y B y muestra
+ * un mensaje.
  *
  * @param stack_a Puntero al puntero de la pila A.
  * @param stack_b Puntero al puntero de la pila B.
@@ -65,5 +64,4 @@ void	rotate_ab(t_linked_list **stack_a, t_linked_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_printf("rr\n");
 }

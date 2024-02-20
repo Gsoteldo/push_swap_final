@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 16:59:28 by gsoteldo          #+#    #+#              #
-#    Updated: 2024/02/17 15:39:18 by gabo             ###   ########.fr        #
+#    Updated: 2024/02/20 17:13:06 by gsoteldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,15 @@ SRC =	./src/push_swap.c \
 
 OBJ = $(SRC:.c=.o)
 
-SRC_BONUS = ./bonus/checker_bonus.c
+SRC_BONUS = ./bonus/checker_bonus.c \
+			./bonus/check_input_bonus.c \
+			./bonus/free_stacks_bonus.c \
+			./bonus/push_bonus.c \
+			./bonus/reverse_rotate_bonus.c \
+			./bonus/rotate_bonus.c \
+			./bonus/stack_bonus.c \
+			./bonus/stack_bonus.c \
+			./bonus/swap_bonus.c \
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
@@ -57,11 +65,16 @@ bonus: $(OBJ_BONUS)
 
 clean:
 	rm -f $(OBJ)
+	rm -f $(OBJ_BONUS)
 	@make clean -C libft
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f push_swap
+	rm -f checker
 
 re: fclean all
 
-.PHONY: all play clean fclean re 
+re_bonus: fclean bonus
+
+.PHONY: all play clean fclean re bonus

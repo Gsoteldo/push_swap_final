@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabo <gabo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:59:26 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/17 14:20:58 by gabo             ###   ########.fr       */
+/*   Updated: 2024/02/19 16:05:56 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	swap_b(t_linked_list **stack_b)
 }
 
 /**
- * Intercambia los dos primeros elementos de las pilas A y B y muestra un mensaje.
+ * Intercambia los dos primeros elementos de las pilas A y B 
+ * y muestra un mensaje.
  * 
  * @param stack_a Un puntero al puntero de la pila A.
  * @param stack_b Un puntero al puntero de la pila B.
