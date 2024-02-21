@@ -6,7 +6,7 @@
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:59:36 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/20 19:58:57 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:45:39 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	r_rotate(t_linked_list **stack)
 	t_linked_list	*temp;
 	t_linked_list	*temp2;
 
-	if (stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	temp = *stack;
 	temp2 = *stack;

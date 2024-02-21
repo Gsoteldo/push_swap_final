@@ -6,7 +6,7 @@
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:33:54 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/20 21:28:07 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/21 17:59:29 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,5 @@ int	main(int argc, char *argv[])
 	stacks->list_b = NULL;
 	push_swap(stacks);
 	free_stacks(stacks, 1, 0, 1);
-	
 	return (0);
 }

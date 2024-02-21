@@ -6,7 +6,7 @@
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 21:59:26 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/20 19:55:33 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:46:22 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap(t_linked_list **stack)
 {
 	t_linked_list	*temp;
 
-	if (stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	temp = (*stack)->next;
 	(*stack)->next = temp->next;

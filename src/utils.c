@@ -6,7 +6,7 @@
 /*   By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:32:46 by gsoteldo          #+#    #+#             */
-/*   Updated: 2024/02/20 17:34:05 by gsoteldo         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:00:28 by gsoteldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ int	find_index(t_linked_list *stack, int value)
 {
 	t_linked_list	*temp;
 	int				i;
+	int				size;
 
 	i = 0;
 	temp = stack;
-	while (i < stack_size(stack))
+	size = stack_size(stack);
+	while (i < size)
 	{
 		if (temp->content == value)
 			return (i);
@@ -73,16 +75,18 @@ int	search_number_in_a(t_linked_list *stack, int value)
 	t_linked_list	*temp;
 	int				flag;
 	int				i;
+	int				size;
 
 	i = 0;
 	flag = 0;
 	temp = stack;
+	size = stack_size(stack);
 	while (flag == 0)
 	{
 		i = 0;
 		temp = stack;
 		value++;
-		while (i++ < stack_size(stack))
+		while (i++ < size)
 		{
 			if (temp->content == value)
 				flag = 1;
@@ -108,16 +112,18 @@ int	search_number_in_b(t_linked_list *stack, int value)
 	t_linked_list	*temp;
 	int				flag;
 	int				i;
+	int				size;
 
 	i = 0;
 	flag = 0;
 	temp = stack;
+	size = stack_size(stack);
 	while (flag == 0)
 	{
 		i = 0;
 		temp = stack;
 		value--;
-		while (i++ < stack_size(stack))
+		while (i++ < size)
 		{
 			if (temp->content == value)
 				flag = 1;
