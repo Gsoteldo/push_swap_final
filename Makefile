@@ -6,7 +6,7 @@
 #    By: gsoteldo <gsoteldo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 16:59:28 by gsoteldo          #+#    #+#              #
-#    Updated: 2024/02/20 17:13:06 by gsoteldo         ###   ########.fr        #
+#    Updated: 2024/02/24 16:28:29 by gsoteldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,6 @@ $(NAME): $(OBJ)
 	@mv libft/libft.a $(NAME)
 	ar rc $(NAME) $(OBJ)
 	$(CC) $(CFLAGS) $(NAME) -o push_swap
-
-play: $(NAME)
-#	$(CC) $(CFLAGS) $(NAME) -o push_swap
-	./push_swap 1 2 3
 
 bonus: $(OBJ_BONUS)
 	@make -C libft
