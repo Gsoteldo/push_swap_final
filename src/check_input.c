@@ -39,8 +39,6 @@ int	is_repeated(int argc, char **argv)
 	int	j;
 
 	i = 1;
-	if (argc == 2)
-		i = 0;
 	while (argv[i])
 	{
 		j = i + 1;
